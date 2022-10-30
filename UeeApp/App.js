@@ -2,7 +2,9 @@ import * as React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 
@@ -49,18 +51,23 @@ const App = ()=> {
           let iconName;
 
           if (route.name === 'Home') {
-            iconName = focused
-              ? 'home-outline'
-              : 'home-outline';
+            iconName = focused ? 'home' : 'home';
           } else if (route.name === 'Requests') {
-            iconName = focused ? 'home-outline' : 'home-outline';
+            iconName = focused ? 'rule_folder' : 'rule_folder';
+          }
+          else if (route.name === 'Chat') {
+            iconName = focused ? 'comment-dots' : 'comment-dots';
+          }
+          else if (route.name === 'Profile') {
+            iconName = focused ? 'user-circle' : 'user-circle';
           }
 
           // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <FontAwesome5 name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'green',
+        tabBarActiveTintColor: "blue",
         tabBarInactiveTintColor: 'gray',
+     
       })}
       >
         <Tab.Screen name="Home" component={Home} />
